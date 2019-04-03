@@ -1,3 +1,7 @@
+# To start the program, please open a terminal/prompt and go to the directory
+#that this file and 'data.json' are saved. With python installed, run
+#'python app1.py'
+
 import json
 from difflib import get_close_matches
 data = json.load(open("data.json"))
@@ -19,4 +23,10 @@ def translate(w):
         return "The word doesn't exist. Please double check it."
 word = input("Enter word: ")
 
-print(translate(word))
+output = translate(word)
+
+if type(output) == list:
+    for definition in output:
+        print(definition)
+else:
+    print(output)
